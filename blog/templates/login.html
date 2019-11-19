@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock %}
+
+
+{% block sub_content %}
+
+<div class="container">
+        <h1 class="text-center">Login</h1>
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+            <form action="" method="POST">
+              
+              <label > Username:</label>
+              <input type="text" name="username" class="form-control" placeholder="Enter your username " required>
+              
+              <label >Password:</label>
+              <input type="password" name="password" class="form-control" placeholder="Enter your password " required>
+              
+
+              <button type="submit" class="btn btn-primary mt-3">Login</button>
+
+            </form>
+            <br> 
+            <a href="/forgot"> <p>Forgot Password</p> </a>
+
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+
+
+{% endblock %}   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

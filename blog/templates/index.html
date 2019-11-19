@@ -1,0 +1,131 @@
+{% block navbar %}
+  {% include "_navbar.html" %}
+{% endblock %}
+
+
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Favicon-->
+		<link rel="shortcut icon" href="{{url_for('static', filename='img/fav.png')}}">
+		<!-- Author Meta -->
+		<meta name="author" content="colorlib">
+		<!-- Meta Description -->
+		<meta name="description" content="">
+		<!-- Meta Keyword -->
+		<meta name="keywords" content="">
+		<!-- meta character set -->
+		<!-- Site Title -->
+		<title>Magazine</title>
+		<link href="{{url_for('static', filename='https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700')}}" rel="stylesheet">
+		<!--
+		CSS
+		============================================= -->
+		<link rel="stylesheet" href="{{url_for('static', filename='css/linearicons.css')}}">
+		<link rel="stylesheet" href="{{url_for('static', filename='css/font-awesome.min.css')}}">
+		<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}">
+		<link rel="stylesheet" href="{{url_for('static', filename='css/magnific-popup.css')}}">
+		<link rel="stylesheet" href="{{url_for('static', filename='css/nice-select.css')}}">
+		<link rel="stylesheet" href="{{url_for('static', filename='css/animate.min.css')}}">
+		<link rel="stylesheet" href="{{url_for('static', filename='css/owl.carousel.css')}}">
+		<link rel="stylesheet" href="{{url_for('static', filename='css/jquery-ui.css')}}">
+		<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+	</head>
+	<body>
+		
+ <div class="container">
+
+  <div class="row">
+    <div class="col-md-12" style="margin-left: 20px;">
+
+             
+      {% block content %}
+
+
+
+    </section>
+    <!-- End top-post Area -->
+    <!-- Start latest-post Area -->
+    <section class="latest-post-area pb-120">
+      <div class="container no-padding">
+        <div class="row">
+          <div class="col-lg-8 post-list">
+            <!-- Start latest-post Area -->
+            <div class="latest-post-wrap">
+              <br>
+              {% if blogs %}
+              <h4 class="cat-title text-center">Latest News</h4>
+    
+              {% for post in blogs %}
+              <br>
+             
+              <div class="single-latest-post row align-items-center">
+                <div class="col-lg-5 post-left">
+                  <div class="feature-img relative">
+                    <div class="overlay overlay-bg"></div>
+                    <img class="img-fluid" style="height: 200px;" src="{{url_for('static', filename='images/'+post.img)}}" alt="">
+                  </div>
+                  <br>
+                </div>
+                <div class="col-lg-7 post-right">
+                  <a href="/blogs/{{ post['blog_id']}}">
+                    <h4>Title : {{post.title[:50]}}</h4>
+                  </a>
+                  
+                  <p class="excert"> Body : 
+                    {{post.body | truncate(150, True)}}
+                  </p>
+                  
+                  <p><span class="lnr lnr-user">Writen By : </span>{{post.author}} </p>
+                  <p>Date : {{post.pub_date.strftime('%Y %B %d')}} </p>
+                </div>
+              </div>
+              {% endfor %}
+    {% else %}
+    <h1 class="btn btn-danger"> No More pages </h1>
+    <br>
+    {% endif %}
+    
+    
+    
+               {% if blogs %}
+    
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  {% for page in range(page) %}    
+                  <li class="page-item "><a class="page-link active" id="demo"  href="/page/{{loop.index}} ">  {{ loop.index  }}
+                     </a></li> 
+                  {% endfor %} 
+          
+                  {% endif %}
+    
+    
+    {% endblock %}
+    
+            </div>
+          </footer>
+
+    </div>
+  </div>
+
+ </div>
+      <!-- End footer Area -->
+      <script src="{{url_for('static', filename='js/vendor/jquery-2.2.4.min.js')}}"></script>
+      <script src="{{url_for('static', filename='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous')}}"></script>
+      <script src="{{url_for('static', filename='js/vendor/bootstrap.min.js')}}"></script>
+      <script src="{{url_for('static', filename='https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA')}}"></script>
+      <script src="{{url_for('static', filename='js/easing.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/hoverIntent.js')}}"></script>
+      <script src="{{url_for('static', filename='js/superfish.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/jquery.ajaxchimp.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/jquery.magnific-popup.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/mn-accordion.js')}}"></script>
+      <script src="{{url_for('static', filename='js/jquery-ui.js')}}"></script>
+      <script src="{{url_for('static', filename='js/jquery.nice-select.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/owl.carousel.min.js')}}"></script>
+      <script src="{{url_for('static', filename='js/mail-script.js')}}"></script>
+      <script src="{{url_for('static', filename='js/main.js')}}"></script>
+    </body>
+  </html>

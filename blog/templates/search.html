@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include "_messages.html" %}
+{% if results %}
+	<ul style="text-decoration: none;">
+		{% for post in results %}
+			<h2>{{ post.title }}</h2>{{ post.body[:300]|safe }}
+			<a href="/blogs/{{ post['blog_id']}}">Read More</a>
+			
+			
+			<div class="" style="margin-top: 10px; margin-bottom: 50px;">
+				<img style="width: 200px; height: 200px; margin-bottom:50 px; " src="{{url_for('static', filename='images/'+post.img)}}" alt="">
+
+			</div>
+		{% endfor %}
+	</ul>
+{% else %}
+<br> <br> <br>
+	<h3 class="text-center">Not Found search result :</h3>
+{% endif %}
+{% endblock %}

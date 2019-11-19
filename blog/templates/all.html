@@ -1,0 +1,45 @@
+
+<nav class="navbar navbar-light" style="background-color: #e3f2fd; width:100%; margin-left:25px; ">
+        <div class="container">   
+    <div class="navbar-header" >
+            
+            <a class="navbar-brand" href="/"> BLOG </a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            {% if session.login %}
+            <li><a href="/write-blog">Write a new blog</a></li>
+            <li><a href="/my-blogs">View my blogs</a></li>
+            <li><a href="/contactinfo">Contact Info</a></li>
+            <li><a href="/contact">Contact</a></li>
+            {% endif %}
+            <li><a href="/about">About</a></li>
+            <!-- Search form -->
+                
+    
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            {% if session.login %}
+            <li>
+              <a href="/logout">Logout</a>
+            </li>
+            {% else %}
+            <li>
+              <a href="/login">Login</a>
+            </li>
+            <li>
+              <a href="/register">Register</a>
+            </li>
+            {% endif %}
+          </ul>
+          </div>
+      </nav>
+    
+      <style>
+          body{
+            margin-right: 50px;
+            margin-left: 50;
+          }
+        </style>
+    
+    

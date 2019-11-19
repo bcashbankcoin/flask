@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block title %} About Blog {% endblock %}
+
+
+{% block sub_content %}
+
+ 
+<div class="container">
+
+<div class="row">
+  <div class="col-md-4">
+    
+<div id="sidebar" class="my-5">
+  <ul class="list-group">
+      <li class="list-group-item">
+          <a href="{{ url_for('dashboard') }}">Dashboard</a>
+      </li>
+      <li class="list-group-item">
+          <a href="{{ url_for('write_blog') }}">New Post</a>
+      </li>
+      <li class="list-group-item">
+          <a href="{{ url_for('view_blogs') }}">My Posts</a>
+      </li>
+   
+      <li class="list-group-item">
+          <a href=" /edit-profile/{{ user['username'] }} ">Edit Profile</a>
+      </li>
+      <li class="list-group-item">
+          <a href="/changepassword/{{ user['username'] }}">Change Password</a>
+      </li>
+      <li class="list-group-item">
+          <a href="/logout">Logout</a>
+      </li>
+  </ul>
+</div>
+
+  </div>
+
+
+  
+<div class="col-md-8">
+
+
+<div class="container">
+
+
+    <div class=" ">
+        <h5 class="my-3">My Profile</h5>
+            
+            <div class="input-group mb-3">
+                <div class="pull-left image">
+                    <img style="height: 100px;" src="{{url_for('static', filename='images/'+user.img)}} " class="img-circle avatar" alt="user profile image">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title">Enter Your first name</label>
+                <input type="text" name="first_name" id="title" class="form-control" value="{{ user['first_name'] }} " disabled>
+                <div class="invalid-feedback">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title">Enter Your Last name</label>
+                <input type="text" name="last_name" id="title" class="form-control" value="{{ user['last_name'] }} " disabled>
+                <div class="invalid-feedback">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title">Enter Your Email </label>
+                <input type="text" name="email" id="title" class="form-control" value="{{ user['email'] }} " disabled>
+                <div class="invalid-feedback">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title">Enter Your Title</label>
+                <input type="text" name="title" id="title" class="form-control" value="{{ user['title'] }} " disabled>
+                <div class="invalid-feedback">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="title">Enter Your Post Description</label>
+                <input type="text" name="des" id="title" class="form-control" value="{{ user['des'] }} " disabled>
+                <div class="invalid-feedback">
+                </div>
+            </div>
+            
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+{% endblock %}   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

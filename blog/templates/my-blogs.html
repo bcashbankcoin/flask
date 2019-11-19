@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %} My Blogs {% endblock %}
+{% block sub_content %}
+
+<div class="container">
+<h3 class="text-center">My Posts</h3>
+<br>
+  {% if my_blogs %}
+    <table  class="text-left m-2" cellpadding="5" >
+    {% for my_blog in my_blogs %}
+      <tr>  
+
+
+        <td style="padding:0 15px; margin-left: 100px;"> <h3> <a href="/blogs/{{ my_blog['blog_id'] }}">{{my_blog['title'][:60]}} </a> </h3></td>
+          
+        
+          <td style="padding:0 15px;"> <a href="/edit-blog/{{ my_blog['blog_id'] }}" class="btn btn-primary">Edit</a></td>
+          
+          <td style="padding:0 15px; margin-left: 100px;"> <a href="/delete-blog/{{ my_blog['blog_id'] }}" class="btn btn-danger">Delete</a></td>
+
+       
+       
+      </tr>
+    {% endfor %}
+    </table>
+  {% else %}
+    <h3>No blogs have been written by you</h3>
+  {% endif %}
+{% endblock %}
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

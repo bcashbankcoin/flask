@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %} Contact Information {% endblock %}
+
+{% block sub_content %}
+{% if contact %}
+    {% for contact in contact %}
+    <table class="text-center m-5" cellpadding="5" >
+    <div class="container">
+      <h6> ID : {{contact['id']}} </h6>
+    </div>
+    <div class="container">
+      <h5> NAME : {{contact['name']}} </h6>
+    </div>
+    <div class="container">
+      <h6> EMAIL : {{contact['email']}} </h6>
+    </div>
+    <div class="container">
+        <h6> SUBJECT : {{contact['subject']}}  </h6>
+      </div>
+    <div class="container">
+      <p> MESSAGE :  {{contact['msg']}}  </p>
+
+    </div>
+
+    
+  </table>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        
+     <a href="/edit-contact/{{contact['id']}}" class="btn btn-primary">Edit</a>
+    
+     <a href="/contactmove/{{contact['id']}}" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+  </div>
+      <hr>
+      
+    {% endfor %}
+    {% else %}
+    <div class="container">
+      <p> MESSAGE : There is no more message here  </p>
+
+    </div>
+  {% endif %}
+
+{% endblock %}   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
